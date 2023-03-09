@@ -89,7 +89,7 @@ export default function Listing() {
       <div className="m-4 flex flex-col md:flex-row max-w-6xl lg:mx-auto p-4 rounded-lg shadow-lg bg-white lg:space-x-5">
         <div className=" w-full ">
           <p className="text-2xl font-bold mb-3 text-blue-900">
-            {listing.name} - ${" "}
+            {listing.name} - Ksh{" "}
             {listing.offer
               ? listing.discountedPrice
                   .toString()
@@ -97,7 +97,7 @@ export default function Listing() {
               : listing.regularPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            {listing.type === "rent" ? " / month" : ""}
+            {listing.type === "male" ? " / month" : ""}
           </p>
           <p className="flex items-center mt-6 mb-3 font-semibold">
             <FaMapMarkerAlt className="text-green-700 mr-1" />
@@ -105,11 +105,11 @@ export default function Listing() {
           </p>
           <div className="flex justify-start items-center space-x-4 w-[75%]">
             <p className="bg-red-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
-              {listing.type === "rent" ? "Rent" : "Sale"}
+              {listing.type === "male" ? "Male" : "Female"}
             </p>
             {listing.offer && (
               <p className="w-full max-w-[200px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
-                ${+listing.regularPrice - +listing.discountedPrice} discount
+                Ksh{+listing.regularPrice - +listing.discountedPrice} discount
               </p>
             )}
           </div>
@@ -118,21 +118,21 @@ export default function Listing() {
             {listing.description}
           </p>
           <ul className="flex items-center space-x-2 sm:space-x-10 text-sm font-semibold mb-6">
-            <li className="flex items-center whitespace-nowrap">
+            {/* <li className="flex items-center whitespace-nowrap">
               <FaBed className="text-lg mr-1" />
               {+listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}
             </li>
             <li className="flex items-center whitespace-nowrap">
               <FaBath className="text-lg mr-1" />
               {+listing.bathrooms > 1 ? `${listing.bathrooms} Baths` : "1 Bath"}
-            </li>
+            </li> */}
             <li className="flex items-center whitespace-nowrap">
               <FaParking className="text-lg mr-1" />
-              {listing.parking ? "Parking spot" : "No parking"}
+              {listing.food ? "Food" : "No food available"}
             </li>
             <li className="flex items-center whitespace-nowrap">
               <FaChair className="text-lg mr-1" />
-              {listing.furnished ? "Furnished" : "Not furnished"}
+              {listing.wifi ? "Free Wifi" : "No free wifi"}
             </li>
           </ul>
           {listing.userRef !== auth.currentUser?.uid && !contactLandlord && (

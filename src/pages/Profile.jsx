@@ -151,7 +151,7 @@ export default function Profile() {
               className="flex justify-center items-center"
             >
               <FcHome className="mr-2 text-3xl bg-red-200 rounded-full p-1 border-2" />
-              Sell or rent your home
+              Add Your Hostel Details
             </Link>
           </button>
         </div>

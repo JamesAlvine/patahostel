@@ -19,12 +19,12 @@ export default function CreateListing() {
   const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    type: "rent",
+    type: "female",
     name: "",
     bedrooms: 1,
     bathrooms: 1,
-    parking: false,
-    furnished: false,
+    food: false,
+    wifi: false,
     address: "",
     description: "",
     offer: false,
@@ -39,9 +39,9 @@ export default function CreateListing() {
     name,
     bedrooms,
     bathrooms,
-    parking,
+    food,
     address,
-    furnished,
+    wifi,
     description,
     offer,
     regularPrice,
@@ -179,33 +179,33 @@ export default function CreateListing() {
     <main className="max-w-md px-2 mx-auto">
       <h1 className="text-3xl text-center mt-6 font-bold">Create a Listing</h1>
       <form onSubmit={onSubmit}>
-        <p className="text-lg mt-6 font-semibold">Sell / Rent</p>
+        <p className="text-lg mt-6 font-semibold">Male / Female</p>
         <div className="flex">
           <button
             type="button"
             id="type"
-            value="sale"
+            value="male"
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "rent"
+              type === "female"
                 ? "bg-white text-black"
                 : "bg-slate-600 text-white"
             }`}
           >
-            sell
+            Male
           </button>
           <button
             type="button"
             id="type"
-            value="rent"
+            value="female"
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "sale"
+              type === "male"
                 ? "bg-white text-black"
                 : "bg-slate-600 text-white"
             }`}
           >
-            rent
+            Female
           </button>
         </div>
         <p className="text-lg mt-6 font-semibold">Name</p>
@@ -220,7 +220,7 @@ export default function CreateListing() {
           required
           className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
-        <div className="flex space-x-6 mb-6">
+        {/* <div className="flex space-x-6 mb-6">
           <div>
             <p className="text-lg font-semibold">Beds</p>
             <input
@@ -247,52 +247,52 @@ export default function CreateListing() {
               className="w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 text-center"
             />
           </div>
-        </div>
-        <p className="text-lg mt-6 font-semibold">Parking spot</p>
+        </div> */}
+        <p className="text-lg mt-6 font-semibold">Food Availability </p>
         <div className="flex">
           <button
             type="button"
-            id="parking"
+            id="food"
             value={true}
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              !food ? "bg-white text-black" : "bg-slate-600 text-white"
             }`}
           >
             Yes
           </button>
           <button
             type="button"
-            id="parking"
+            id="food"
             value={false}
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              food ? "bg-white text-black" : "bg-slate-600 text-white"
             }`}
           >
             no
           </button>
         </div>
-        <p className="text-lg mt-6 font-semibold">Furnished</p>
+        <p className="text-lg mt-6 font-semibold">Free Wifi</p>
         <div className="flex">
           <button
             type="button"
-            id="furnished"
+            id="wifi"
             value={true}
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              !wifi ? "bg-white text-black" : "bg-slate-600 text-white"
             }`}
           >
             yes
           </button>
           <button
             type="button"
-            id="furnished"
+            id="wifi"
             value={false}
             onClick={onChange}
             className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              wifi ? "bg-white text-black" : "bg-slate-600 text-white"
             }`}
           >
             no
@@ -389,7 +389,7 @@ export default function CreateListing() {
               />
               {type === "rent" && (
                 <div className="">
-                  <p className="text-md w-full whitespace-nowrap">$ / Month</p>
+                  <p className="text-md w-full whitespace-nowrap">Ksh / Month</p>
                 </div>
               )}
             </div>
@@ -413,7 +413,7 @@ export default function CreateListing() {
                 {type === "rent" && (
                   <div className="">
                     <p className="text-md w-full whitespace-nowrap">
-                      $ / Month
+                      Ksh / Month
                     </p>
                   </div>
                 )}

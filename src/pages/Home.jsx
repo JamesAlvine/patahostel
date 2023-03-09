@@ -45,8 +45,8 @@ export default function Home() {
     }
     fetchListings();
   }, []);
-  // Places for rent
-  const [rentListings, setRentListings] = useState(null);
+  // Places for males
+  const [maleListings, setMaleListings] = useState(null);
   useEffect(() => {
     async function fetchListings() {
       try {
@@ -55,7 +55,7 @@ export default function Home() {
         // create the query
         const q = query(
           listingsRef,
-          where("type", "==", "rent"),
+          where("type", "==", "male"),
           orderBy("timestamp", "desc"),
           limit(4)
         );
@@ -68,7 +68,7 @@ export default function Home() {
             data: doc.data(),
           });
         });
-        setRentListings(listings);
+        setMaleListings(listings);
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +76,7 @@ export default function Home() {
     fetchListings();
   }, []);
   // Places for rent
-  const [saleListings, setSaleListings] = useState(null);
+  const [femaleListings, setFemaleListings] = useState(null);
   useEffect(() => {
     async function fetchListings() {
       try {
@@ -85,7 +85,7 @@ export default function Home() {
         // create the query
         const q = query(
           listingsRef,
-          where("type", "==", "sale"),
+          where("type", "==", "female"),
           orderBy("timestamp", "desc"),
           limit(4)
         );
@@ -98,7 +98,7 @@ export default function Home() {
             data: doc.data(),
           });
         });
-        setSaleListings(listings);
+        setFemaleListings(listings);
       } catch (error) {
         console.log(error);
       }
@@ -111,10 +111,10 @@ export default function Home() {
       <div className="max-w-6xl mx-auto pt-4 space-y-6">
         {offerListings && offerListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Recent offers</h2>
+            <h2 className="px-3 text-2xl mt-6 font-semibold">Recent Suggestions</h2>
             <Link to="/offers">
               <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
-                Show more offers
+                Show more Suggestions
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
@@ -128,16 +128,16 @@ export default function Home() {
             </ul>
           </div>
         )}
-        {rentListings && rentListings.length > 0 && (
+        {maleListings && maleListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for rent</h2>
-            <Link to="/category/rent">
+            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for males</h2>
+            <Link to="/category/male">
               <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
-                Show more places for rent
+                Show more places for male
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-              {rentListings.map((listing) => (
+              {maleListings.map((listing) => (
                 <ListingItem
                   key={listing.id}
                   listing={listing.data}
@@ -147,16 +147,16 @@ export default function Home() {
             </ul>
           </div>
         )}
-        {saleListings && saleListings.length > 0 && (
+        {femaleListings && femaleListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for sale</h2>
-            <Link to="/category/sale">
+            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for females</h2>
+            <Link to="/category/female">
               <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
-                Show more places for sale
+                Show more places for females
               </p>
             </Link>
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-              {saleListings.map((listing) => (
+              {femaleListings.map((listing) => (
                 <ListingItem
                   key={listing.id}
                   listing={listing.data}

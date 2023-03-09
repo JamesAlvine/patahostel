@@ -12,7 +12,7 @@ import {
 import { db } from "../firebase";
 import Spinner from "../components/Spinner";
 import ListingItem from "../components/ListingItem";
-import { async } from "@firebase/util";
+
 
 export default function Offers() {
   const [listings, setListings] = useState(null);
@@ -56,7 +56,7 @@ export default function Offers() {
         where("offer", "==", true),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
-        limit(4)
+        limit(6)
       );
       const querySnap = await getDocs(q);
       const lastVisible = querySnap.docs[querySnap.docs.length - 1];
