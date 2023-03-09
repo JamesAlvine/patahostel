@@ -130,7 +130,7 @@ export default function Home() {
         )}
         {maleListings && maleListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for males</h2>
+            <h2 className="px-3 text-2xl mt-6 text-center tracking-wider font-semibold">Places for males</h2>
            
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
               {maleListings.map((listing) => (
@@ -150,7 +150,7 @@ export default function Home() {
         )}
         {femaleListings && femaleListings.length > 0 && (
           <div className="m-2 mb-6">
-            <h2 className="px-3 text-2xl mt-6 font-semibold">Places for females</h2>
+            <h2 className="px-3 text-2xl mt-6 text-center tracking-wider font-semibold">Places for females</h2>
            
             <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
               {femaleListings.map((listing) => (
@@ -162,7 +162,7 @@ export default function Home() {
               ))}
             </ul>
             <Link to="/category/female">
-              <p className="px-3 text-sm text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out">
+              <p className="px-3 text-sm text-blue-600 right-0 flex hover:text-blue-800 transition duration-150 ease-in-out">
                 Show more places for females
               </p>
             </Link>
