@@ -102,10 +102,10 @@ export default function SignIn() {
             >
               Sign in
             </button>
-            <div className="flex items-center  my-4 before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
+            {/* <div className="flex items-center  my-4 before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
               <p className="text-center font-semibold mx-4">OR</p>
             </div>
-            <OAuth />
+            <OAuth /> */}
           </form>
         </div>
       </div>

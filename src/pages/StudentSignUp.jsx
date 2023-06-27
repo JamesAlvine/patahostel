@@ -12,7 +12,7 @@ import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function SignUp() {
+export default function StudentSignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -48,18 +48,18 @@ export default function SignUp() {
 
       await setDoc(doc(db, "users", user.uid), formDataCopy);
       toast.success("Sign up was successful");
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       toast.error("Something went wrong with the registration");
     }
   }
   return (
     <section>
-      <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold">Student Sign Up</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
-            src="https://images.unsplash.com/flagged/photo-1564767609342-620cb19b2357?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80"
+            src="https://ezilet.net/wp-content/uploads/2022/06/What-is-student-hostel-alena-darmel-9040527-1024x683.jpg"
             alt="key"
             className="w-full rounded-2xl"
           />

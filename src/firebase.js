@@ -6,15 +6,15 @@ import {getFirestore} from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA0zaUXDMg_tsuFvXOtnr7le-h9roCVyX0",
-  authDomain: "theapp-360e3.firebaseapp.com",
-  projectId: "theapp-360e3",
-  storageBucket: "theapp-360e3.appspot.com",
-  messagingSenderId: "329553535750",
-  appId: "1:329553535750:web:e5a8cd0139ed0180453487"
+  apiKey: "AIzaSyCGwj4i0NcsQybcNO04C4NQxxy8ZixuJS8",
+  authDomain: "pata-hostel-b2eee.firebaseapp.com",
+  projectId: "pata-hostel-b2eee",
+  storageBucket: "pata-hostel-b2eee.appspot.com",
+  messagingSenderId: "640571221755",
+  appId: "1:640571221755:web:b9c01c84e9a5c855d0325e"
 };
 
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const db = getFirestore()
